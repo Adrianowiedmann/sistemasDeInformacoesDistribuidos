@@ -1,0 +1,238 @@
+openapi: 3.0.3
+info:
+  title: Matricula
+  description: |-
+    API para acesso a funcionalidades do SIGAA.
+  termsOfService: http://redes.unb.br/api/terms/
+  contact:
+    email: ricardo.puttini@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://redes.unb.br/api/graduacao
+tags:
+  - name: Matricula
+    description: Matrícula de um aluno de graduação da Universidade de Brasília
+paths:
+  /Matricula:
+    get:
+      tags:
+        - Matricula
+      summary: Pesquisa matriculas
+      description: Pesquisa matricula através do período
+      operationId: search
+      parameters:
+        - in: query
+          name: periodo
+          schema:
+            type: string
+            example:
+              2023-1
+          required: true
+        - in: query
+          name: status
+          required: false
+          schema:
+            $ref: "#/components/schemas/StatusMatricula"
+        - in: query
+          name: turma
+          schema:
+            type: string
+            example:
+              01
+        - in: query
+          name: disciplina
+          schema:
+            type: string
+            example:
+              SISTEMAS DE INFORMAÇÃO DISTRIBUÍDOS
+        - in: query
+          name: aluno
+          schema:
+            type: string
+            example:
+              Adriano Ulrich do Prado Wiedmann
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatriculaSearchSet'
+        '404':
+          description: nao encontrado
+    post:
+      tags:
+        - Matricula
+      summary: Cria matricula
+      operationId: create
+      requestBody:
+        description: Cria uma matricula nova
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MatriculaCreate'
+      responses:
+        '201':
+          description: criado
+        '400':
+          description: requisição inválida
+        '409':
+          description: conflito
+  /Matricula/{id}:
+    patch:
+      tags:
+        - Matricula
+      summary: Atualiza matricula
+      description: Atualiza especificações de uma matrícula já existente
+      operationId: patch
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      requestBody:
+        description: Atualiza uma matrícula já existente
+        required: true
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/MatriculaPatch'
+      responses:    
+        '200':
+          description: sucesso
+        '400':
+          description: requisição inválida
+        '404':
+          description: não encontrado
+        '409':
+          description: conflito
+components:
+  schemas:
+    MatriculaPatch:
+      type: array
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            op:
+              type: string
+              enum:
+              - replace
+              - add
+            path:
+              type: string
+              enum:
+              - /status
+            value:
+              type: string
+      example:
+        - op: replace
+          path: /status
+          value: Matriculado
+    MatriculaCreate:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Resource'
+      properties:
+        aluno:
+          description: referencia para o aluno
+          type: object
+          properties:
+            reference:
+              type: string
+              description: referência para o aluno, realizada através do id do aluno (matrícula do aluno)
+              example: Aluno/{id}
+        turma:
+          description: referencia para a turma
+          type: object
+          properties:
+            reference:
+              type: string
+              description: referência para a turma, realizada através do id da turma
+              example: Turma/{id}
+        status:
+          $ref: "#/components/schemas/StatusMatricula"
+        prioridade:
+          type: integer
+        detalhe:
+          type: string
+      required:
+        - aluno
+        - turma
+        - status
+    StatusMatricula:
+      type: string
+      enum:
+      - PreMatricula
+      - Retirado
+      - Matriculado
+      - Solicitado
+      - Indeferido
+      - RetiradoCoordenador
+      - Cancelado
+    MatriculaSearchSet:
+      type: object
+      properties:
+        _total:
+          type: integer
+        _size:
+          type: integer
+        _offset:
+          type: integer
+        _lastUpdated:
+          type: string
+          format:
+            date
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Matricula'
+    Matricula:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Resource'
+      properties:
+        status:
+          type: string
+          example:
+            Matriculado
+        dataHora:
+          type: string
+          example:
+            18/07/2023 - 10:43
+        prioridade:
+          type: integer
+          example:
+            1
+    Resource:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - Matricula
+        _version:
+          type: string
+        _history:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceShort'
+        id:
+          type: string
+          example: 180113356
+    ResourceShort:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - Matricula
+        id:
+          type: string
+          example: "6553"

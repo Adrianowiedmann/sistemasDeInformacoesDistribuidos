@@ -1,0 +1,207 @@
+openapi: 3.0.3
+info:
+  title: Turma
+  description: |-
+    API para acesso a funcionalidades do SIGAA.
+  termsOfService: http://redes.unb.br/api/terms/
+  contact:
+    email: ricardo.puttini@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://redes.unb.br/api/graduacao
+tags:
+  - name: Turma
+    description: Turma de uma disciplina de graduação da Universidade de Brasília
+paths:
+  /Turma:
+    get:
+      tags:
+        - Turma
+      summary: pesquisa turma
+      description: 'Pesquisa disciplinas pelos parametros "periodoLetivo", "nomeDisciplina" e "unidade"'
+      operationId: pesquisar
+      parameters:
+        - name: periodoLetivo
+          in: query
+          description: Período letivo da disciplina
+          required: False
+          schema:
+            type: integer
+        - name: nomeDisciplina
+          in: query
+          description: Nome da disciplina
+          required: False
+          schema:
+            type: string
+        - name: unidade
+          in: query
+          description: Unidade da turma
+          required: False
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSet'          
+        '400':
+          description: Invalid tag value
+  /Turma/{id}:
+    get:
+      tags:
+        - Turma
+      summary: Consulta uma turma
+      description: Consulta uma turma pelo código da turma
+      operationId: read
+      parameters:
+        - name: id
+          in: path
+          description: Código da turma
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Turma'          
+        '404':
+          description: not found
+          
+components:
+  schemas:
+    Resource:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - Turma
+        _version:
+          type: string
+        _history:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceShort'
+        id:
+          type: string
+          example: 180113356
+    ResourceShort:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - Turma
+        id:
+          type: string
+          example: "6553"
+    SearchSet:
+      type: object
+      properties:
+        _total:
+          type: integer
+        _size:
+          type: integer
+        _offset:
+          type: integer
+        _lastUpdated:
+          type: string
+          format:
+            date
+        _items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TurmaShort'
+    Turma:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Resource'
+      properties:
+        codigo:
+          type: string
+          example:
+            1
+        vagasOfertadas:
+          type: integer
+          example:
+            30
+        vagasOcupadas:
+          type: integer
+          example:
+            15
+        PeriodoLetivo:
+          $ref: '#/components/schemas/PeriodoLetivo'
+        Professor:
+          type: array
+          items:
+            $ref: '#/components/schemas/Professor'
+        Horario:
+          type: array
+          items:
+            $ref: '#/components/schemas/Horario'
+        Disciplina:
+          $ref: '#/components/schemas/Disciplina'
+    TurmaShort:
+      type: object
+      properties:
+        codigo:
+          type: string
+          example:
+            1
+        vagasOfertadas:
+          type: string
+          example:
+            30
+        vagasOcupadas:
+          type: string
+          example:
+            15
+    PeriodoLetivo:
+      type: object
+      properties:
+        ano:
+          type: integer
+          example:
+            2023
+        periodo:
+          type: integer
+          example:
+            2
+    Professor:
+      properties:
+        matricula:
+          type: integer
+          example:
+            123456789
+        nome:
+          type: string
+          example:
+            Daniel Guerreiro
+    Horario:
+      properties:
+        dia:
+          type: string
+          example:
+            Segunda e Quarta
+        horaInicio:
+          type: string
+          example:
+            16:00
+        horaFim:
+          type: string
+          example:
+            17:50
+    Disciplina:
+      properties:
+        nome:
+          type: string
+          example:
+            Fundamentos de Redes

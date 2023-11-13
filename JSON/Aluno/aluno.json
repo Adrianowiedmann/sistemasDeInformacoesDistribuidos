@@ -1,0 +1,17 @@
+{
+    "_resourceType": "Aluno",
+    "matricula": "202014824",
+    "nome": "Adriano Ulrich do Prado Wiedmann",
+    "ira": 4.012,
+    "dataNascimento": "24/04/2002",
+    "status": "Ativo",
+    "curriculo": "6351/2",
+    "curso": {
+        "codigo": "6351",
+        "nome": "Engenharia de Redes de Comunicacao"
+    },
+    "periodoIngresso": {
+        "ano": 2020,
+        "periodo": 2
+    }
+}

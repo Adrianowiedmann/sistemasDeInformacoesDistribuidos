@@ -1,0 +1,27 @@
+{
+    "_resourceType": "Turma",
+    "codigo": "A",
+    "vagasOfertadas": 30,
+    "vagaOcupadas": 15,
+    "disciplina": {
+        "codigo": "ENE0088",
+        "nome": "SISTEMAS DE INFORMAÇÃO DISTRIBUÍDOS"
+    },
+    "periodoLetivo": {
+        "ano": 2023,
+        "periodo": 2
+    },
+    "professor": [
+        {
+            "matricula": "932581563",
+            "nome": "Ricardo Staciarini Puttini"
+        }
+    ],
+    "horario": [
+        {
+            "dia": "Segunda-feira",
+            "horaInicio": "18:00",
+            "horaFim": "19:40"
+        }
+    ]
+}

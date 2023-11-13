@@ -1,0 +1,240 @@
+openapi: 3.0.3
+info:
+  title: HistoricoAcademico
+  description: |-
+    API para acesso a funcionalidades do SIGAA.
+  termsOfService: http://redes.unb.br/api/terms/
+  contact:
+    email: ricardo.puttini@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://redes.unb.br/api/graduacao
+tags:
+  - name: HistoricoAcademico
+    description: Histórico acadêmico de um aluno de graduação da Universidade de Brasília
+paths:
+  /HistoricoAcademico/{id}:
+    get:
+      tags:
+        - HistoricoAcademico
+      summary: Ler histórico acadêmico
+      description: Ler histórico acadêmico de um aluno de graduação da Universidade de Brasília
+      operationId: readHistoricoAcademico
+      parameters:
+        - name: id
+          in: path
+          description: Código do curso
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HistoricoAcademico'          
+        '404':
+          description: não encontrado
+  /HistoricoAcademico/{id}/Disciplina:
+    get:
+      tags:
+        - HistoricoAcademico
+      summary: Ler disciplina do histórico acadêmico
+      description: Ler disciplina do histórico acadêmico de um aluno de graduação
+      operationId: readHistoricoAcademicoDisciplina
+      parameters:
+        - name: id
+          in: path
+          description: Código do curso
+          required: true
+          schema:
+            type: string
+        - name: disciplina
+          in: query
+          description: disciplina
+          required: false
+          schema:
+            type: string
+        - name: nome
+          in: query
+          description: Nome da disciplina
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Status
+          required: false
+          schema:
+            type: string
+        - name: periodo
+          in: query
+          description: Periodo
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisciplinaHistoricoAcademico'          
+        '404':
+          description: não encontrado
+components:
+  schemas:
+    Resource:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - HistoricoAcademico
+        _version:
+          type: string
+        _history:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceShort'
+        id:
+          type: string
+          example: 180113356
+    ResourceShort:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - HistoricoAcademico
+        id:
+          type: string
+          example: "6553"
+    HistoricoAcademico:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Resource'
+      properties:
+        aluno:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/Aluno'
+        curso:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/Curso'
+    Aluno:
+      type: object
+      properties:
+        matricula:
+          type: string
+          example:
+            202014824
+        nome:
+          type: string
+          example:
+            Adriano Ulrich do Prado Wiedmann
+        ira:
+          type: integer
+          example:
+            4.012
+        dataNascimento:
+          type: string
+          example:
+            24/04/2002
+        status:
+          type: string
+          example:
+            Ativo
+        curriculo:
+          type: string
+          example:
+            6351/2
+        periodoIngresso:
+          type: object
+          properties:
+            ano:
+              type: integer
+              example:
+                2020
+            periodo:
+              type: integer
+              example:
+                2
+    Curso:
+      type: object
+      properties:
+        codigo:
+          type: string
+          example:
+            6351
+        bome:
+          type: string
+          example:
+            Engenharia de Redes de Comunicacao
+        modalidade:
+          type: string
+          example:
+            Presencial
+        grauAcademico:
+          type: string
+          example:
+            Bacharelado
+        turno:
+          type: string
+          example:
+            Diurno
+        sede:
+          type: string
+          example:
+            Brasília
+    DisciplinaHistoricoAcademico:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/HistoricoAcademico'
+      properties:
+        disciplina:
+          type: array
+          items:
+            $ref: '#/components/schemas/Disciplinas'
+    Disciplinas:
+      type: object
+      properties:
+        mrncao:
+          type: string
+          example:
+            SS
+        frequencia:
+          type: string
+          example: 
+            100%
+        status:
+          type: string
+          example:
+            Ativo
+        periodoLetivo:
+          type: object
+          properties:
+            ano:
+              type: integer
+              example:
+                2020
+            periodo:
+              type: integer
+              example:
+                2
+        disciplina:
+          type: object
+          properties:
+            nome:
+              type: string
+              example:
+                COMPUTACAO PARA ENGENHARIA
+            codigo:
+              type: string
+              example:
+                ENE0334

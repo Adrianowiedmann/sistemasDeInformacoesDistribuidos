@@ -1,0 +1,219 @@
+openapi: 3.0.3
+info:
+  title: Aluno
+  description: |-
+    API para acesso a funcionalidades do SIGAA.
+  termsOfService: http://redes.unb.br/api/terms/
+  contact:
+    email: ricardo.puttini@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://redes.unb.br/api/graduacao
+tags:
+  - name: Aluno
+    description: Aluno de graduação de um curso
+paths:
+  /Aluno:
+    get:
+      tags:
+        - Aluno
+      summary: Pesquisa aluno
+      description: ...
+      operationId: search
+      parameters:
+        - name: nome
+          in: query
+          description: Nome de um aluno
+          required: false
+          schema:
+            type: string
+        - name: unidade
+          in: query
+          description: Código da unidade do curso do aluno
+          required: false
+          schema:
+            type: string
+            example: 'ENE'
+        - name: modalidade
+          in: query
+          description: Modalidade do curso do aluno
+          required: false
+          schema:
+            type: string
+        - name: curso
+          in: query
+          description: Curso do aluno
+          required: false
+          schema:
+            type: string
+        - name: periodoIngresso
+          in: query
+          description: Período de ingresso do aluno
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSet'          
+        '400':
+          description: Invalid tag value
+  /Aluno/{id}:
+    get:
+      tags:
+        - Aluno
+      summary: Consulta um aluno, pela matrícula do aluno
+      description: ...
+      operationId: read
+      parameters:
+        - name: id
+          in: path
+          description: Matrícula do aluno
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aluno'          
+        '404':
+          description: não encontrado
+components:
+  schemas:
+    Resource:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - Aluno
+        _version:
+          type: string
+        _history:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceShort'
+        id:
+          type: string
+          example: 180113356
+    ResourceShort:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - Aluno
+        id:
+          type: string
+    Aluno:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Resource'
+      properties:
+        matricula:
+          type: string
+          example:
+            202014824
+        nome:
+          type: string
+          example:
+            Adriano Ulrich do Prado Wiedmann
+        ira:
+          type: number
+          example:
+            4.012
+        dataNascimento:
+          type: string
+          example:
+            24/04/2002
+        status:
+          type: string
+          example:
+            Ativo
+        curriculo:
+          type: string
+          example:
+            6351/2
+        periodoIngresso:
+          type: object
+          properties:
+            ano:
+              type: integer
+              example:
+                2020
+            periodo:
+              type: integer
+              example:
+                2
+        curso:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/CursoShort'
+          properties:
+            unidade:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/Unidade'
+    AlunoShort:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/ResourceShort'
+      properties:
+        matricula:
+          type: string
+          example:
+            202014824
+        nome:
+          type: string
+          example:
+            Adriano Ulrich do Prado Wiedmann
+        status:
+          type: string
+          example:
+            Ativo
+    SearchSet:
+      type: object
+      properties:
+        _total:
+          type: integer
+        _size:
+          type: integer
+        _offset:
+          type: integer
+        _lastUpdated:
+          type: string
+          format:
+            date
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlunoShort'
+    CursoShort:
+      type: object
+      properties:
+        codigo:
+          type: string
+          example:
+            6351
+        nome:
+          type: string
+          example:
+            Engenharia de Redes de Comunicacao
+    Unidade:
+      type: object
+      properties:
+        codigo:
+          type: string
+          example: ENE
+        nome:
+          type: string
+          example: DEPARTAMENTO DE ENGENHARIA ELÉTRICA

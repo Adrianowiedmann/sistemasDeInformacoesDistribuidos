@@ -1,0 +1,448 @@
+openapi: 3.0.3
+info:
+  title: SIGAA
+  description: |-
+    API para acesso a funcionalidades do SIGAA.
+  termsOfService: http://sid.redes.unb.br/SIGAA/termos
+  contact:
+    email: ricardo.puttini@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: '1.0'
+servers:
+  - url: http://sid.redes.unb.br/SIGAA/api/prof/Disciplina
+tags:
+  - name: Curso
+    description: Disciplina de graduação da Universidade de Brasília
+paths:
+  /Curso:
+    get:
+      tags:
+        - Curso
+      summary: Pesquisa curso
+      description: (descrever)
+      operationId: searchDisciplina
+      parameters: 
+        - name: nome
+          in: query
+          description: Nome ou parte do nome do curso
+          required: false
+          schema:
+            type: string
+        - name: unidade
+          in: query
+          description: Unidade do curso
+          required: false
+          schema:
+            type: string
+        - name: modalidade
+          in: query
+          description: Modalidade do curso
+          required: false
+          schema:
+            type: string
+        - name: turno
+          in: query
+          description: Turno do curso
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CursoSearchSet'    
+        '404':
+          description: nao encontrado
+  /Curso/{id}:
+    get:
+      tags:
+        - Curso
+      summary: Pesquisa curso
+      description: (descrever)
+      operationId: read
+      parameters:
+        - name: id
+          in: path
+          description: Código do curso
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Curso'          
+        '404':
+          description: nao encontrado
+  /Curso/{id}/EstruturaCurricular:
+    get:
+      tags:
+        - Curso
+      summary: ...
+      description: ...
+      operationId: searchEstruturaCurricular
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          schema:
+            type: string
+        - name: status
+          in: query        
+          description: status
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EstruturaCurricular'          
+        '404':
+          description: nao encontrado
+  /Curso/{id}/EstruturaCurricular/{curriculo}:
+    get:
+      tags:
+        - Curso
+      summary: ...
+      description: ...
+      operationId: readEstruturaCurricular
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          schema:
+            type: string
+        - name: curriculo
+          in: path
+          description: curriculo
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Curriculo'          
+        '404':
+          description: nao encontrado
+  /Curso/{id}/EstruturaCurricular/{curriculo}/Disciplina:
+    get:
+      tags:
+        - Curso
+      summary: ...
+      description: ...
+      operationId: searchDisciplinaEstruturaCurricular
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          schema:
+            type: string
+        - name: curriculo
+          in: path
+          description: curriculo
+          required: true
+          schema:
+            type: string
+        - name: tipo
+          in: query
+          description: tipo
+          required: false
+          schema:
+            type: string
+        - name: nivel
+          in: query
+          description: nivel
+          required: false
+          schema:
+            type: string
+        - name: unidade
+          in: query
+          description: unidade
+          required: false
+          schema:
+            type: string
+        - name: nome
+          in: query
+          description: id
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisciplinaEstruturaCurricular'          
+        '404':
+          description: nao encontrado
+  /Curso/{id}/EstruturaCurricular/{curriculo}/Disciplina/{disciplina}:
+    get:
+      tags:
+        - Curso
+      summary: ...
+      description: ...
+      operationId: readDisciplinaEstruturaCurricular
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          schema:
+            type: string
+        - name: curriculo
+          in: path
+          description: curriculo
+          required: true
+          schema:
+            type: string
+        - name: disciplina
+          in: path
+          description: disciplina
+          required: true
+          schema:
+            type: string
+        - name: nome
+          in: query
+          description: Nome ou parte do nome da disciplina
+          required: false
+          schema:
+            type: string
+        - name: unidade
+          in: query
+          description: Código da unidade da disciplina
+          required: false
+          schema:
+            type: string
+            example: 'ENE'
+      responses:
+        '200':
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/disciplina'          
+        '404':
+          description: nao encontrado
+components:
+  schemas:
+    disciplina:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/DisciplinaEstruturaCurricular'
+      properties:
+        disciplina:
+          type: object
+          properties:
+            codigo:
+              type: string
+              example:
+                ENE0026
+            nome:
+              type: string
+              example:
+                INTRODUCAO A ENGENHARIA DE REDES DE COMUNICACAO
+    DisciplinaEstruturaCurricular:
+      type: object
+      properties:
+        tipo:
+          type: string
+          example:
+            Obrigatória
+        nivel:
+          type: integer
+          example:
+            1
+    Curriculo:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/EstruturaCurricular'
+      properties:
+        periodoVigor:
+          type: object
+          properties:
+            ano:
+              type: integer
+              example:
+                2020
+            periodo:
+              type: integer
+              example:
+                1
+        cargaHoraria:
+          type: object
+          properties:
+            obrigatoriaMinima:
+              type: integer
+              example: 
+                2640
+            optativaMinima:
+              type: integer
+              example:
+                1110
+            totalMinima:
+              type: integer
+              example:
+                3750
+            componenteEletivosMaxima:
+              type: integer
+              example:
+                360
+            periodoLetivoMinimo:
+              type: integer
+              example:
+                210
+            periodoLetivoMaximo:
+              type: integer
+              example:
+                450
+        prazo:
+          type: object
+          properties:
+            minimo:
+              type: integer
+              example:
+                10
+            medio:
+              type: integer
+              example:
+                10
+            maximo:
+              type: integer
+              example:
+                20
+    EstruturaCurricular:
+      type: object
+      properties:
+        codigo:
+          type: string
+          example:
+            6351/2
+        status:
+          type: string
+          example:
+            Ativa
+    CursoSearchSet:
+      type: object
+      properties:
+        _total:
+          type: integer
+        _size:
+          type: integer
+        _offset:
+          type: integer
+        _lastUpdated:
+          type: string
+          format:
+            date
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CursoShort'
+    CursoShort:
+      type: object
+      properties:
+        codigo:
+          type: string
+          example:
+            6351
+        nome:
+          type: string
+          example:
+            Engenharia de Redes de Comunicação
+        modalidade:
+          type: string
+          example:
+            Presencial
+    Curso:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Resource'
+      properties:
+        codigo:
+          type: string
+          example:
+            6351
+        nome:
+          type: string
+          example:
+            Engenharia de Redes de Comunicação
+        modalidade:
+          type: string
+          example:
+            Presencial
+        grauAcademico:
+          type: string
+          example:
+            Bacharelado
+        turno:
+          type: string
+          example:
+            Diurno
+        sede:
+          type: string
+          example:
+            Brasília
+        coordenador:
+          type: object
+          properties:
+            matricula:
+              type: integer
+              example:
+                20/2002020
+            nome:
+              type: string
+              example:
+                Vinicius Pereira Goncalves
+        unidade:
+          type: object
+          properties:
+            codigo:
+              type: string
+              example:
+                ENE
+            nome:
+              type: string
+              example:
+                DEPARTAMENTO DE ENGENHARIA ELÉTRICA
+    Resource:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - Aluno
+        _version:
+          type: string
+        _history:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceShort'
+        id:
+          type: string
+          example: 180113356
+    ResourceShort:
+      type: object
+      properties:
+        _resourceType:
+          type: string
+          enum:
+            - Aluno
+        id:
+          type: string
+          example: "6553"

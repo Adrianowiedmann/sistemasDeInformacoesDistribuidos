@@ -1,0 +1,31 @@
+{
+    "_resourceType": "Curso",
+    "codigo": "6531",
+    "nome": "Engenharia de Redes de Comunicação",
+    "modalidade": "Presencial",
+    "grauAcademico": "Bacharelado",
+    "turno": "Diurno",
+    "sede": "Faculdade de Tecnologia",
+    "coordenador": {
+        "matricula": "873291543",
+        "nome": "VINICIUS PEREIRA GONCALVES"
+    },
+    "unidade": {
+        "codigo": "ENE",
+        "nome": "DEPTO ENGENHARIA ELETRICA"
+    },
+    "estruturaCurricular": [
+    {
+        "codigo": "6351/2",
+        "status": "Ativo"
+    },
+    {
+        "codigo": "6351/1",
+        "status": "Inativo"
+    },        
+    {
+        "codigo": "6351/-22",
+        "status": "Inativo"
+    }
+    ]
+}

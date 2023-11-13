@@ -1,0 +1,535 @@
+{
+    "estruturaCurricular": [
+        {
+            "codigo": "6351/2",
+            "status": "Ativa",
+            "periodoVigor":{
+                "ano": 2020,
+                "periodo": 1
+            },
+            "cargaHoraria":{
+                "cargaHoraria": {
+                    "obrigatoriaMinima": 2640,
+                    "optativaMinima": 1110,
+                    "totalMinima": 3750,
+                    "componenteEletivosMaxima": 360,
+                    "periodoLetivoMinimo": 210,
+                    "periodoLetivoMaximo": 450
+                }
+            },
+            "prazo": {
+                "minimo": 10,
+                "medio": 10,
+                "maximo": 20
+            },
+            "disciplina": [
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "INTRODUÇÃO A ENGENHARIA DE REDES DE COMUNICACÃO",
+                        "codigo": "ENE0026"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "COMPUTACAO PARA ENGENHARIA",
+                        "codigo": "ENE0334"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "FÍSICA 1",
+                        "codigo": "IFD0171"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "FISICA 1 EXPERIMENTAL",
+                        "codigo": "IFD0173"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "CÁLCULO 1",
+                        "codigo": "MAT0025"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "INTRODUCAO A ALGEBRA LINEAR",
+                        "codigo": "MAT0031"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+                        "codigo": "ENE0013"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "SISTEMAS DIGITAIS",
+                        "codigo": "ENE0039"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+                        "codigo": "ENE0040"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "PROBABILIDADE E ESTATÍSTICA",
+                        "codigo": "EST0023"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "FISICA 2",
+                        "codigo": "IFD0175"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "CÁLCULO 2",
+                        "codigo": "MAT0026"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1",
+                        "codigo": "ENE0022"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "SISTEMAS MICROPROCESSADOS",
+                        "codigo": "ENE0056"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "LABORATÓRIO DE SISTEMAS MICROPROCESSADOS",
+                        "codigo": "ENE0058"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO",
+                        "codigo": "ENE0067"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "FUNDAMENTOS DE REDES",
+                        "codigo": "ENE0274"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "FISICA 2 EXPERIMENTAL",
+                        "codigo": "IFD0177"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "CÁLCULO 3",
+                        "codigo": "MAT0027"
+                    }
+                }
+            ]
+        },
+        {
+            "codigo": "6351/1",
+            "status": "Ativa",
+            "periodoVigor":{
+                "ano": 2018,
+                "periodo": 2
+            },
+            "cargaHoraria":{
+                "cargaHoraria": {
+                    "obrigatoriaMinima": 2640,
+                    "optativaMinima": 1110,
+                    "totalMinima": 3750,
+                    "componenteEletivosMaxima": 360,
+                    "periodoLetivoMinimo": 210,
+                    "periodoLetivoMaximo": 450
+                }
+            },
+            "prazo": {
+                "minimo": 10,
+                "medio": 10,
+                "maximo": 20
+            },
+            "disciplina": [
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "INTRODUÇÃO A ENGENHARIA DE REDES DE COMUNICACÃO",
+                        "codigo": "ENE0026"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "COMPUTACAO PARA ENGENHARIA",
+                        "codigo": "ENE0334"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "FÍSICA 1",
+                        "codigo": "IFD0171"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "FISICA 1 EXPERIMENTAL",
+                        "codigo": "IFD0173"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "CÁLCULO 1",
+                        "codigo": "MAT0025"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "INTRODUCAO A ALGEBRA LINEAR",
+                        "codigo": "MAT0031"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+                        "codigo": "ENE0013"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "SISTEMAS DIGITAIS",
+                        "codigo": "ENE0039"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+                        "codigo": "ENE0040"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "PROBABILIDADE E ESTATÍSTICA",
+                        "codigo": "EST0023"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "FISICA 2",
+                        "codigo": "IFD0175"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "CÁLCULO 2",
+                        "codigo": "MAT0026"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1",
+                        "codigo": "ENE0022"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "SISTEMAS MICROPROCESSADOS",
+                        "codigo": "ENE0056"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "LABORATÓRIO DE SISTEMAS MICROPROCESSADOS",
+                        "codigo": "ENE0058"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO",
+                        "codigo": "ENE0067"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "FUNDAMENTOS DE REDES",
+                        "codigo": "ENE0274"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "FISICA 2 EXPERIMENTAL",
+                        "codigo": "IFD0177"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "CÁLCULO 3",
+                        "codigo": "MAT0027"
+                    }
+                }
+            ] 
+        },
+        {
+            "codigo": "6351/-2",
+            "status": "Ativa",
+            "periodoVigor":{
+                "ano": 2017,
+                "periodo": 1
+            },
+            "cargaHoraria":{
+                "cargaHoraria": {
+                    "obrigatoriaMinima": 2070,
+                    "optativaMinima": 1680,
+                    "totalMinima": 3750,
+                    "componenteEletivosMaxima": 360,
+                    "periodoLetivoMinimo": 210,
+                    "periodoLetivoMaximo": 450
+                }
+            },
+            "prazo": {
+                "minimo": 10,
+                "medio": 10,
+                "maximo": 20
+            },
+            "disciplina": [
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "INTRODUÇÃO A ENGENHARIA DE REDES DE COMUNICACÃO",
+                        "codigo": "ENE0026"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "COMPUTACAO PARA ENGENHARIA",
+                        "codigo": "ENE0334"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "FÍSICA 1",
+                        "codigo": "IFD0171"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "FISICA 1 EXPERIMENTAL",
+                        "codigo": "IFD0173"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "CÁLCULO 1",
+                        "codigo": "MAT0025"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 1,
+                    "disciplina": {
+                        "nome": "INTRODUCAO A ALGEBRA LINEAR",
+                        "codigo": "MAT0031"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+                        "codigo": "ENE0013"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "SISTEMAS DIGITAIS",
+                        "codigo": "ENE0039"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+                        "codigo": "ENE0040"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "PROBABILIDADE E ESTATÍSTICA",
+                        "codigo": "EST0022"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "FISICA 2",
+                        "codigo": "IFD0175"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 2,
+                    "disciplina": {
+                        "nome": "CÁLCULO 2",
+                        "codigo": "MAT0026"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1",
+                        "codigo": "ENE0022"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "ARQUITETURA DE PROCESSADORES DIGITAIS",
+                        "codigo": "ENE0055"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "LABORATÓRIO DE ARQUITETURA DE PROCESSADORES DIGITAIS",
+                        "codigo": "ENE0057"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO",
+                        "codigo": "ENE0067"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "FUNDAMENTOS DE REDES",
+                        "codigo": "ENE0274"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "FISICA 2 EXPERIMENTAL",
+                        "codigo": "IFD0177"
+                    }
+                },
+                {
+                    "tipo": "Obrigatória",
+                    "nivel": 3,
+                    "disciplina": {
+                        "nome": "CÁLCULO 3",
+                        "codigo": "MAT0027"
+                    }
+                }
+            ] 
+        }
+    ]
+}

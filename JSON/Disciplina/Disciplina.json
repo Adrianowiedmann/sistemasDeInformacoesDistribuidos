@@ -1,0 +1,22 @@
+{
+    "_resourceType": "Disciplina",
+    "codigo": "ENE0088",
+    "nome": "SISTEMAS DE INFORMAÇÃO DISTRIBUÍDOS",
+    "cargaHorariaTotal": 60,
+    "modalidade": "Presencial",
+    "preRequisito": [
+        {
+            "codigo": "ENE0025",
+            "nome": "PROTOCOLOS DE TRANSPORTE E ROTEAMENTO"
+        }
+    ],
+    "cargaHoraria": {
+        "teorica": 60,
+        "pratica": 0,
+        "extensionista": 0
+    },
+    "unidade": {
+        "codigo": "ENE",
+        "nome": "DEPTO ENGENHARIA ELETRICA"
+    }
+}
