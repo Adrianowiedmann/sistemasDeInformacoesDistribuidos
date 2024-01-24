@@ -1,2 +1,2 @@
-- Discipline name: Distributed Information Systems (Sistemas de Informação Distribuído);
-- University: Universidade de Brasília.
+- Distributed Information Systems repository (Sistemas de Informação Distribuído);
+- Discpline from University of Brasília.
